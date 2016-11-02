@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.xperfect.tt.lib.widget.FrescoRecyclerView
+                android:id="@+id/rcv_img_select"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="1dp"
+                android:background="#212121">
+
+            </com.xperfect.tt.lib.widget.FrescoRecyclerView>
+
+            <LinearLayout
+                android:id="@+id/ll_img_select_folder"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:background="#A000">
+
+                <TextView
+                    android:id="@+id/tv_img_selected_folder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:text="全部图片"
+                    android:textSize="16sp"
+                    android:textColor="#FFF"
+                    android:gravity="center"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tv_img_selected_preview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:text="预览"
+                    android:textSize="16sp"
+                    android:textColor="#FFF"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!--app:headerLayout="@layout/nav_header_main"-->
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:background="#FFF">
+
+                <TextView
+                    android:id="@+id/tv_nav_take_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:drawablePadding="20dp"
+                    android:drawableLeft="@drawable/ic_menu_camera"
+                    android:text="拍照"
+                    android:background="@drawable/bg_down_line"/>
+
+                <TextView
+                    android:id="@+id/tv_nav_gallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:drawablePadding="20dp"
+                    android:drawableLeft="@drawable/ic_menu_gallery"
+                    android:text="相册"
+                    android:background="@drawable/bg_down_line"/>
+
+            </LinearLayout>
+
+            <com.xperfect.tt.lib.widget.FrescoRecyclerView
+                android:id="@+id/rcv_img_folder_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom|center"
+                android:visibility="visible">
+            </com.xperfect.tt.lib.widget.FrescoRecyclerView>
+
+        </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</RelativeLayout>
